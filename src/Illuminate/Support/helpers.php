@@ -507,3 +507,31 @@ if (! function_exists('with')) {
         return is_null($callback) ? $value : $callback($value);
     }
 }
+
+if (! function_exists('setJsVar')) {
+    /**
+     * Stores a JavaScript variable in the cache.
+     *
+     * @param  string  $name   The name of the JavaScript variable to store.
+     * @param  mixed   $value  The value of the JavaScript variable.
+     * @return bool            Returns `true` if the value was successfully stored.
+     */
+    function setJsVar($name, $value)
+    {
+        return cache()->put($name, $value);
+    }
+}
+
+if (! function_exists('getJsVar')) {
+    /**
+     * Retrieves a JavaScript variable from the cache.
+     *
+     * @param  string  $name  The name of the JavaScript variable to retrieve.
+     * @return mixed          The value of the JavaScript variable, or `null` if it doesn't exist.
+     */
+    function getJsVar($name)
+    {
+        return cache()->get($name);
+    }
+}
+
